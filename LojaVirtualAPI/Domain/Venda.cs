@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace LojaVirtualAPI.Domain
 {
@@ -8,9 +9,11 @@ namespace LojaVirtualAPI.Domain
         [Key]
         public int Id { get; set; }
         [ForeignKey("Cliente")]
+        [JsonIgnore]
         public int IdCliente { get; set; }
         [Required]
         [ForeignKey("Loja")]
+        [JsonIgnore]
         public int IdLoja { get; set; }
         [Column(TypeName = "decimal(10,2)")]
         [Required]
